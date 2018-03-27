@@ -9,6 +9,7 @@ public class Run {
     public static void main(String[] args) {
         Field field = new Field();
         field.createBattleship();
+        field.createBattleship();
         field.printBoard();
     }
 }
