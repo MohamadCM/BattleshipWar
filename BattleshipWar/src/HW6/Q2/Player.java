@@ -62,6 +62,20 @@ abstract public class Player {
     }
     public void printBoards()
     {
+        for(int i = 0 ; i < 22 ; i++)
+            System.out.print("#");
+        System.out.print("       ");
+        for(int i = 0 ; i < 22 ; i++)
+            System.out.print("#");
+        System.out.println();
+        System.out.println("#######Player 1#######       ######Player 2########");
+        for(int i = 0 ; i < 22 ; i++)
+            System.out.print("#");
+        System.out.print("       ");
+        for(int i = 0 ; i < 22 ; i++)
+            System.out.print("#");
+        System.out.println();
+
         System.out.print(" |");
         for(int i = 0 ; i < 10 ; i++)
             System.out.print(i + "|");
