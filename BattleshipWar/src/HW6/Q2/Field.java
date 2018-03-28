@@ -18,6 +18,9 @@ public class Field {
     public Field()
     {
         board = new char[10][10];
+        //for(int i =0 ; i < 10 ; i++)
+         //   for(int j = 0 ; j < 10 ; j++)
+          //      board[i][j] = ' ';
     }
     public void createBattleship() {
         System.out.println("Please enter the type of battleship\n **1 for vertical \t and \t other thing for horizontal");
@@ -158,11 +161,30 @@ public class Field {
      */
     public void printBoard()
     {
+
         for (int i = 0 ; i < 10 ; i++) {
-            for (int j = 0; j < 10; j++)
-                System.out.print(board[i][j]);
+            for (int j = 0; j < 10; j++) {
+                if(board[i][j] == '@')
+                    System.out.print("\u001B[34m " + board[i][j] + " \u001B[0m");
+                else
+                    System.out.print(" " + board[i][j] + " ");
+            }
             System.out.println("");
         }
+    }
 
+    /**
+     * @return borad of game as a two dimensional array of chars
+     */
+    public char[][] getBoard() {
+        return board;
+    }
+
+    /**
+     * Sets a new board for field
+     * @param board is given board
+     */
+    public void setBoard(char[][] board) {
+        this.board = board;
     }
 }
