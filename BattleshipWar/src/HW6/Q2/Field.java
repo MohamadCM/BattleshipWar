@@ -18,9 +18,9 @@ public class Field {
     public Field()
     {
         board = new char[10][10];
-        //for(int i =0 ; i < 10 ; i++)
-         //   for(int j = 0 ; j < 10 ; j++)
-          //      board[i][j] = ' ';
+        for(int i =0 ; i < 10 ; i++)
+            for(int j = 0 ; j < 10 ; j++)
+                board[i][j] = ' ';
     }
     public void createBattleship() {
         System.out.println("Please enter the type of battleship\n **1 for vertical \t and \t other thing for horizontal");

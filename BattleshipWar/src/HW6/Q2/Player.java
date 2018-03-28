@@ -22,6 +22,13 @@ abstract public class Player {
     }
 
     /**
+     * @return players name
+     */
+    public String getPlayerName() {
+        return playerName;
+    }
+
+    /**
      * Sets opponents field
      * @param player is a player
      */
@@ -86,15 +93,28 @@ abstract public class Player {
             for(int j = 0 ; j < 10 ; j++)
             {
                 if(opponentField.getBoard()[i][j] == '@')
-                    System.out.print(" ");
+                    System.out.print(" |");
                 else if(opponentField.getBoard()[i][j] == '#')
                     System.out.print("\u001B[32m" + '&' + "\u001B[0m" + "|");
-                else if(currentField.getBoard()[i][j] == 'X')
-                    System.out.print("\u001B[33m" + currentField.getBoard()[i][j] + "\u001B[0m" + "|");
+                else if(opponentField.getBoard()[i][j] == 'X')
+                    System.out.print("\u001B[33m" + opponentField.getBoard()[i][j] + "\u001B[0m" + "|");
                 else
                     System.out.print(opponentField.getBoard()[i][j] + "|");
             }
             System.out.println();
         }
+    }
+
+    /**
+     * Checks wheter this player won the game or not
+     * @return {@code true} if the game is won, {@code false} otherwise
+     */
+    public boolean hasWon()
+    {
+        for(int i = 0 ; i < 10 ; i++)
+            for(int j = 0 ; j < 10 ; j++)
+                if(opponentField.getBoard()[i][j] == '@')
+                    return false;
+        return true;
     }
 }
