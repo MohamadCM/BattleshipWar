@@ -1,5 +1,6 @@
 package HW6.Q2;
 
+import java.util.Random;
 import java.util.Scanner;
 
 /**
@@ -172,7 +173,6 @@ public class Field {
             System.out.println("");
         }
     }
-
     /**
      * @return borad of game as a two dimensional array of chars
      */
@@ -186,5 +186,43 @@ public class Field {
      */
     public void setBoard(char[][] board) {
         this.board = board;
+    }
+    public void createBattleshipByComputer() {
+        Random random = new Random();
+        int type = random.nextInt(2);
+        if(type != 1)
+            type = 2;
+        if(type == 2)
+        {
+            int row = random.nextInt(9);
+            int[] startAndEnd = new int[2];
+            while (true) {
+                startAndEnd[0] = random.nextInt(10);
+                startAndEnd[1] = random.nextInt(5) + startAndEnd[0];
+                if (haveOverlap(true, row, startAndEnd) || startAndEnd[1] > 9)
+                {
+                    continue;
+                }
+                break;
+            }
+            for(int i = startAndEnd[0] ; i <= startAndEnd[1] ; i++)
+                board[row][i] = '@';
+        }
+        else if(type == 1)
+        {
+            int column = random.nextInt(9);
+            int[] startAndEnd = new int[2];
+            while (true) {
+                startAndEnd[0] = random.nextInt(9);
+                startAndEnd[1] = random.nextInt(4) + startAndEnd[0];
+                if (haveOverlap(false, column, startAndEnd) && startAndEnd[1] > 9)
+                {
+                    continue;
+                }
+                break;
+            }
+            for(int i = startAndEnd[0] ; i <= startAndEnd[1] ; i++)
+                board[i][column] = '@';
+        }
     }
 }
