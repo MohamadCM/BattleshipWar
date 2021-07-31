@@ -1,2 +1,2 @@
 # BattleshipWar
-Simple console-type battleship wars game crated using java :)
+Simple CLI battleship-wars game crated using java as a practice for "Advanced programming" course.
